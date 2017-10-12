@@ -7,7 +7,9 @@ require_once("vendor/autoload.php");
 $images = glob('images/*.{jpeg,jpg,png}', GLOB_BRACE);
 
 var_dump($images);
-
+if (!file_exists('compressed')) {
+    mkdir('compressed', 0777, true);
+}
 
 foreach($images as $image){
 	$source = \Tinify\fromFile($image);
